@@ -7,17 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Lista de carros</h1>
+    <h1>
+        lista de Libros
+    </h1>
     <ul>
-        @foreach($cars as $car)
-            <li>
-                {{ $car->make }}
-                {{ $car->model }}
-                {{ $car->color }}
-                {{ $car->year }}
-            </li>
+        @foreach($books as $book)
+            <li>{{ $book->title }}</li>
         @endforeach
     </ul>
-    
 </body>
 </html>

@@ -9,7 +9,7 @@ class CarController extends Controller
 {
     public function index(){
         $cars = Car::all(); //los datos pedidos al modelo Car se alojan en la variable $cars
-        return view('car.index' , compact('cars')); //se retorna a la vista cars.index 
+        return view('index' , compact('cars')); //se retorna a la vista cars.index 
 
     }
 }
