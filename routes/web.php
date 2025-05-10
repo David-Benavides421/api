@@ -1,9 +1,16 @@
 <?php
 
 use App\Http\Controllers\CarController;
+use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+
+
+
+
+
+Route::get('/cars', [CarController::class, 'index']);
 
 // Rutas públicas (cualquiera puede acceder)
 Route::get('/', function () {
@@ -17,13 +24,17 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+
+
 // --- Rutas para USUARIOS AUTENTICADOS ---
 Route::middleware('auth')->group(function () {
     // Perfil (Breeze ya crea estas rutas y las protege con 'auth')
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::get('/dashboard/cars', [CarController::class, 'index']);
+    
+    
+    
 
     // --- Rutas específicas para USUARIOS con rol 'user' (Opcional) ---
     // A menudo, solo necesitas 'auth'. Pero si quieres rutas SOLO para 'user' y no para 'admin':

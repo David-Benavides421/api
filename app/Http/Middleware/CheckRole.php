@@ -24,7 +24,7 @@ class CheckRole
             // Podrías redirigirlo explícitamente si quisieras: return redirect('login');
             // O abortar, aunque 403 (Prohibido) es más para usuarios logueados sin permiso.
             // Si llega aquí sin estar logueado, probablemente sea un error de configuración de rutas.
-             abort(401, 'No autenticado.'); // 401 Unauthorized
+            return redirect('login'); // 401 Unauthorized
         }
 
         // 2. Verificar si el usuario autenticado tiene el rol requerido
